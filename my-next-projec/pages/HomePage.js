@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import Image1 from "../public/images/Image1.jpg";
+import Image1 from "../public/images/image1.jpg";
 import { Element } from "react-scroll";
 
 function Home() {
