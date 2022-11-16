@@ -13,7 +13,7 @@ function works() {
 			<div className="w-full my-50 h-auto flex flex-col justify-center items-center  ">
 				<p className="text-sm uppercase text-gray-400">Projects</p>
 				<h1 className="text-indigo-900 text-6xl font-bold text-center">
-					Expamples 
+					Examples 
 				</h1>
 
 				<div className="md:flex sm:flex-col md:flex-row justify-center items-center gap-10 mt-10">
