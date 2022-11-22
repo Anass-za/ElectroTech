@@ -12,7 +12,7 @@ import Four2 from "../public/images/10.png";
 import Five2 from "../public/images/11.png";
 import Six2 from "../public/images/12.png";
 import { Element } from "react-scroll";
-
+import { Link } from "react-scroll";
 function works() {
 	return (
 		<Element id="work" name="work">

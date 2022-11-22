@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Image1 from "../public/images/image1.jpg";
 import { Element } from "react-scroll";
-
+import { Link } from "react-scroll";
 function Home() {
 	return (
 		<Element id="home" name="home">
@@ -31,10 +31,8 @@ function Home() {
 							href="#"
 							className="font-semibold text-white md:mt-10 mt-5 pt-5 bg-indigo-900 rounded-md w-60 h-16 text-lg hover:bg-black "
 						>
-							Get Contact Now
-						</a>
 						<Link
-										activeClass="Contact"
+										activeClass="Get Contact Now"
 										to="Contact"
 										smooth={true}
 										offset={50}
@@ -43,6 +41,8 @@ function Home() {
 									>
 										Get Contact Now
 									</Link>
+						</a>
+						
 					</div>
 				</div>
 			</div>
