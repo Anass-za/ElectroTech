@@ -33,6 +33,16 @@ function Home() {
 						>
 							Get Contact Now
 						</a>
+						<Link
+										activeClass="Contact"
+										to="Contact"
+										smooth={true}
+										offset={50}
+										duration={500}
+										className="cursor-pointer hover:text-blue-600 text-black px-3 py-2"
+									>
+										Get Contact Now
+									</Link>
 					</div>
 				</div>
 			</div>

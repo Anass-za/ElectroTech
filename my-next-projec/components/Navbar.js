@@ -39,8 +39,8 @@ function Navbar() {
 										Services
 									</Link>
 									<Link
-										activeClass="Projects"
-										to="Projects"
+										activeClass="works"
+										to="works"
 										smooth={true}
 										offset={50}
 										duration={500}
