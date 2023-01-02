@@ -50,7 +50,7 @@ export default function Contact() {
 
     if (isValidForm) {
       setButtonText("Sending");
-      const res = await fetch("/api/contact", {
+      const res = await fetch("/api/Contact", {
         body: JSON.stringify({
           email: email,
           fullname: fullname,
