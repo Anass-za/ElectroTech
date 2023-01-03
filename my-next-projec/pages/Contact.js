@@ -41,7 +41,7 @@ export default function Contact() {
     return isValid;
   };
 
-  //   const [form, setForm] = useState(false);
+    const [form, setForm] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -50,7 +50,7 @@ export default function Contact() {
 
     if (isValidForm) {
       setButtonText("Sending");
-      const res = await fetch("/api/contact", {
+      const res = await fetch("/api/sendgrid", {
         body: JSON.stringify({
           email: email,
           fullname: fullname,
@@ -62,7 +62,6 @@ export default function Contact() {
         },
         method: "POST",
       });
-
       const { error } = await res.json();
       if (error) {
         console.log(error);
