@@ -165,10 +165,12 @@ function works() {
 						/>
 					</div>
 				</div>
-	<div className="rounded w-80 h-60 shadow-xl relative">
+				<div className="md:flex sm:flex-col md:flex-row justify-center items-start sm:pb-10 md:gap-10 mt-10">
+					
+					<div className="rounded w-80 h-60 shadow-xl relative">
 						<Image
 							src={Six3}
-							alt="five"
+							alt="four"
 							layout="fill"
 							objectFit="cover"
 							className="p-2 rounded cursor-pointer"
@@ -179,16 +181,6 @@ function works() {
 					<div className="rounded w-80 h-60 shadow-xl relative">
 						<Image
 							src={Six4}
-							alt="six"
-							layout="fill"
-							objectFit="cover"
-							className="p-2 rounded cursor-pointer"
-						/>
-					</div>
-				</div>
-	<div className="rounded w-80 h-60 shadow-xl relative">
-						<Image
-							src={Six(}
 							alt="five"
 							layout="fill"
 							objectFit="cover"
@@ -197,11 +189,18 @@ function works() {
 					</div>
 					
 					
-				
-
-
-
-
+					<div className="rounded w-80 h-60 shadow-xl relative">
+						<Image
+							src={Six5}
+							alt="six"
+							layout="fill"
+							objectFit="cover"
+							className="p-2 rounded cursor-pointer"
+						/>
+					</div>
+				</div>
+					
+					
 				
 
 				
