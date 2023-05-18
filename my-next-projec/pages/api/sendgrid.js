@@ -1,29 +1,22 @@
-export default function handler(req, res) {
-      let response = null;
+import sendgrid from "@sendgrid/mail";
 
-        if (req.method === 'POST') {
-            const sgMail = require('@sendgrid/mail');
-                sgMail.setApiKey(process.env.SENDGRID_APIKEY);
-                    const msg = {
-                          to: req.body.email,
-                                bcc: 'zahir.electro.tech@gmail.com',
-                                      from: 'ana-ss-1994@hotmail.fr',
-                                            subject: 'お問合せありがとうございました。',
-                                                  text: `${req.body.name} 様\nお問合せを受け付けました。回答をお待ちください。\n\n【件名】${req.body.subject}\n${req.body.message}`
-                                                      };
+sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
 
-                                                          (async () => {
-                                                                try {
-                                                                        response = await sgMail.send(msg);
-                                                                              } catch (error) {
-                                                                                      console.error(error);
-                                                                                              if (error.response) {
-                                                                                                        console.error(error.response.body)
-                                                                                                                }
-                                                                                                                      }
-                                                                                                                          })();
-                                                                                                                            }
+async function sendEmail(req, res) {
+  try {
+    // console.log("REQ.BODY", req.body);
+    await sendgrid.send({
+      to: "mannuarora7000@gmail.com", // Your email where you'll receive emails
+      from: "manuarorawork@gmail.com", // your website email address here
+      subject: `${req.body.subject}`,
+      html: `<div>You've got a mail</div>`,
+    });
+  } catch (error) {
+    // console.log(error);
+    return res.status(error.statusCode || 500).json({ error: error.message });
+  }
 
-                                                                                                                              res.status(200);
-                                                                                                                                res.send(response);
-                                                                                                                                }
+  return res.status(200).json({ error: "" });
+}
+
+export default sendEmail;
