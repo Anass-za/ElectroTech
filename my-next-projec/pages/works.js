@@ -11,6 +11,9 @@ import Six1 from "../public/images/9.png";
 import Four2 from "../public/images/10.png";
 import Five2 from "../public/images/11.png";
 import Six2 from "../public/images/12.png";
+import Six3 from "../public/images/13.png";
+import Six4 from "../public/images/14.png";
+import Six5 from "../public/images/15.png";
 import { Element } from "react-scroll";
 import { Link } from "react-scroll";
 function works() {
@@ -162,6 +165,41 @@ function works() {
 						/>
 					</div>
 				</div>
+	<div className="rounded w-80 h-60 shadow-xl relative">
+						<Image
+							src={Six3}
+							alt="five"
+							layout="fill"
+							objectFit="cover"
+							className="p-2 rounded cursor-pointer"
+						/>
+					</div>
+					
+					
+					<div className="rounded w-80 h-60 shadow-xl relative">
+						<Image
+							src={Six4}
+							alt="six"
+							layout="fill"
+							objectFit="cover"
+							className="p-2 rounded cursor-pointer"
+						/>
+					</div>
+				</div>
+	<div className="rounded w-80 h-60 shadow-xl relative">
+						<Image
+							src={Six(}
+							alt="five"
+							layout="fill"
+							objectFit="cover"
+							className="p-2 rounded cursor-pointer"
+						/>
+					</div>
+					
+					
+				
+
+
 
 
 				
