@@ -309,7 +309,7 @@ export default function Contact() {
                 fill="currentColor"
               />
             </svg>
-            <p className="text-gray-500 font-light"> +212 677041901 </p>
+            <p className="text-gray-500 font-light"> +212 677041901 -- +212 760589733</p>
           </div>
           <div className="card p-8 shadow rounded-md flex flex-row items-center space-x-4 hover:shadow-lg cursor-pointer transition duration-200">
             <svg
