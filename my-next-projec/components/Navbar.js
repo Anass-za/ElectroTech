@@ -19,8 +19,8 @@ function Navbar() {
 							<div className="hidden md:block">
 								<div className="ml-10 flex items-baseline space-x-4">
 									<Link
-										activeClass="HomePage"
-										to="HomePage"
+										activeClass="home"
+										to="home"
 										smooth={true}
 										offset={50}
 										duration={500}
@@ -29,8 +29,8 @@ function Navbar() {
 										Home
 									</Link>
 									<Link
-										activeClass="Services"
-										to="Services"
+										activeClass="services"
+										to="services"
 										smooth={true}
 										offset={50}
 										duration={500}
