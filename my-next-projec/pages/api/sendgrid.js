@@ -1,27 +1,48 @@
-const client = require('@sendgrid/client');
-client.setApiKey(process.env.SENDGRID_API_KEY);
-
-const data = {
-  "name": "My API Key",
-  "scopes": [
-    "mail.send",
-    "alerts.create",
-    "alerts.read"
-  ]
-};
-
-const request = {
-  url: `/v3/api_keys`,
-  method: 'POST',
-  body: data
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    background: #eee;
 }
 
-client.request(request)
-  .then(([response, body]) => {
-    console.log(response.statusCode);
-    console.log(response.body);
-  })
-  .catch(error => {
-    console.error(error);
-  });
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 1px 2px 3px #ddd;
+}
+h2, h3 {
+  text-align: center;
+}
+.input_container {
+  margin-bottom: 20px;
+}
+.input {
+  width: 100%;
+  padding: 5px;
+  outline: none;
+}
+.btn_container {
+  text-align: center;
+}
+button {
+  background: #333;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  outline: none;
+  font-size: 16px;
+}
