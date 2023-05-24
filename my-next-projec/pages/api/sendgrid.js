@@ -1,22 +1,27 @@
-import sendgrid from "@sendgrid/mail";
+const client = require('@sendgrid/client');
+client.setApiKey(process.env.SENDGRID_API_KEY);
 
-sendgrid.setApiKey(process.env.password);
+const data = {
+  "name": "My API Key",
+  "scopes": [
+    "mail.send",
+    "alerts.create",
+    "alerts.read"
+  ]
+};
 
-async function sendEmail(req, res) {
-  try {
-    // console.log("REQ.BODY", req.body);
-    await sendgrid.send({
-      to: "anass123zahir@gmail.com", // Your email where you'll receive emails
-      from: "zahi.electro.tech@gmail.com", // your website email address here
-      subject: `${req.body.subject}`,
-      html: `<div>You've got a mail</div>`,
-    });
-  } catch (error) {
-    // console.log(error);
-    return res.status(error.statusCode || 500).json({ error: error.message });
-  }
-
-  return res.status(200).json({ error: "" });
+const request = {
+  url: `/v3/api_keys`,
+  method: 'POST',
+  body: data
 }
 
-export default sendEmail;
+client.request(request)
+  .then(([response, body]) => {
+    console.log(response.statusCode);
+    console.log(response.body);
+  })
+  .catch(error => {
+    console.error(error);
+  });
+
