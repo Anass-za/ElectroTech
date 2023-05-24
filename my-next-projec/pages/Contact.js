@@ -1,81 +1,25 @@
 import React, { useState } from "react";
+require("dotenv").config();
+const sgMail = require("@sendgrid/mail");
 
-export default function Contact() {
-  const [fullname, setFullname] = useState("");
-  const [email, setEmail] = useState("");
-  const [subject, setSubject] = useState("");
-  const [message, setMessage] = useState("");
+const { SG_API_KEY, FROM_EMAIL, TO_EMAIL } = process.env;
+sgMail.setApiKey(SG_API_KEY);
 
-  //   Form validation
-  const [errors, setErrors] = useState({});
-  
-  //   Setting button text
-  const [buttonText, setButtonText] = useState("Send");
-
-  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-  const [showFailureMessage, setShowFailureMessage] = useState(false);
-
-  const handleValidation = () => {
-    let tempErrors = {};
-    let isValid = true;
-
-    if (fullname.length <= 0) {
-      tempErrors["fullname"] = true;
-      isValid = false;
-    }
-    if (email.length <= 0) {
-      tempErrors["email"] = true;
-      isValid = false;
-    }
-    if (subject.length <= 0) {
-      tempErrors["subject"] = true;
-      isValid = false;
-    }
-    if (message.length <= 0) {
-      tempErrors["message"] = true;
-      isValid = false;
-    }
-
-    setErrors({ ...tempErrors });
-    console.log("errors", errors);
-    return isValid;
+export default async function handler(req, res) {
+  const { name, email, message } = req.body;
+  const msg = {
+    to: TO_EMAIL, // Change to your recipient
+    from: FROM_EMAIL, // Change to your verified sender
+    subject: "Contact",
+    html: `<p><strong>name: </strong>${name}</p>
+    <p><strong>email: </strong>${email}</p>    
+    <p><strong>message: </strong>${message}</p>`,
   };
+  await sgMail.send(msg);
+  console.log("email sent");
+  res.status(200).json({ success: true });
+}
 
-    const [form, setForm] = useState(false);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    let isValidForm = handleValidation();
-
-    if (isValidForm) {
-      setButtonText("Sending");
-      const res = await fetch("/api/sendgrid", {
-        body: JSON.stringify({
-          email: email,
-          fullname: fullname,
-          subject: subject,
-          message: message,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-        method: "POST",
-      });
-      const { error } = await res.json();
-      if (error) {
-        console.log(error);
-        setShowSuccessMessage(false);
-        setShowFailureMessage(true);
-        setButtonText("Send");
-
-        // Reset form fields
-        setFullname("");
-        setEmail("");
-        setMessage("");
-        setSubject("");
-        return;
-      }
       setShowSuccessMessage(true);
       setShowFailureMessage(false);
       setButtonText("Send");
