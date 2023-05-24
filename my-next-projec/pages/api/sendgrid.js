@@ -1,6 +1,6 @@
 import sendgrid from "@sendgrid/mail";
 
-sendgrid.setApiKey(process.env.Authorization: Bearer);
+sendgrid.setApiKey(process.env.password);
 
 async function sendEmail(req, res) {
   try {
