@@ -1,5 +1,21 @@
 import React, { useState } from "react";
-
+export default function Form() {
+    const registerUser = async event => {
+      event.preventDefault()
+   
+      const res = await fetch('/api/sendgrid', {
+        body: JSON.stringify({
+          email: event.target.email.value,
+          message: event.target.message.value
+        }),
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        method: 'POST'
+      })
+   
+      const result = await res.json()
+    }
       setShowSuccessMessage(true);
       setShowFailureMessage(false);
       setButtonText("Send");
