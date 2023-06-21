@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 export default function Form() {
-    const registerUser = async event => {
+        const registerUser = async event => {
       event.preventDefault()
    
       const res = await fetch('/api/sendgrid', {
