@@ -21,7 +21,6 @@ export default function Home () {
       
       <Services />
       <Works/>
-      <Contact />
       <Footer />
       
          </div>
